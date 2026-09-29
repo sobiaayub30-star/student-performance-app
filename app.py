@@ -19,12 +19,12 @@ st.write("Enter the student's details to predict their Performance Index (10–1
 
 col1, col2 = st.columns(2)
 with col1:
-    hours = st.slider("Hours Studied", 1, 9, 5)
-    prev = st.slider("Previous Scores", 40, 99, 70)
+    hours = st.number_input("Hours Studied (1-9)", min_value=1, max_value=9, value=5, step=1)
+    prev = st.number_input("Previous Scores (40-99)", min_value=40, max_value=99, value=70, step=1)
     extra = st.radio("Extracurricular Activities", ["Yes", "No"], horizontal=True)
 with col2:
-    sleep = st.slider("Sleep Hours", 4, 9, 7)
-    papers = st.slider("Sample Question Papers Practiced", 0, 9, 5)
+    sleep = st.number_input("Sleep Hours (4-9)", min_value=4, max_value=9, value=7, step=1)
+    papers = st.number_input("Sample Question Papers Practiced (0-9)", min_value=0, max_value=9, value=5, step=1)
 
 if st.button("Predict", type="primary"):
     row = pd.DataFrame([{
